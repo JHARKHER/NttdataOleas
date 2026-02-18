@@ -1,0 +1,39 @@
+
+MIS PASOS PARA CONFIGURAR MI TOKEN (PAT) EN ESTE REPOSITORIO
+============================================================
+
+He anotado aquí mi proceso para crear un token seguro y limitado solo a este proyecto:
+
+1. Entro a mi cuenta de GitHub.com.
+2. Voy a mi 'Settings' -> 'Developer settings' (abajo a la izquierda).
+3. Selecciono 'Personal access tokens' -> 'Fine-grained tokens'.
+4. Pulso en 'Generate new token'.
+
+MI CONFIGURACIÓN DEL TOKEN:
+---------------------------
+- Nombre: Mi_Proyecto_NttData
+- Expiración: La que considere segura (ej. 30 días).
+- Descripción: Mi acceso para la prueba senior.
+
+- Repository access: 
+  ELIJO: "Only select repositories" 
+  Y SELECCIONO MI REPO: "NttdataOleas"
+
+- Permissions (Permisos que necesito):
+  - 'Contents': Read and Write (para mis push).
+  - 'Metadata': Read-only.
+
+5. Genero el token y lo copio a mi portapapeles.
+
+
+
+CÓMO LO USO EN MI TERMINAL:
+---------------------------
+Cuando haga el push, uso mi token si me pide contraseña.
+
+Si quiero automatizarlo para no dar acceso a mis otros repositorios, uso este comando:
+
+git remote set-url origin https://MI_USUARIO:MI_TOKEN@github.com/JHARKHER/NttdataOleas.git
+git push -u origin main
+
+Con esto me aseguro de que el token sea exclusivo para esta entrega.

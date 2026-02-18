@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: API Microservicios Bancarios - César Oleas
+  version: 1.0.0
+paths:
+  /api/v1/customers:
+    post:
+      summary: "F1: Crear Cliente"
+      responses:
+        '201':
+          description: Cliente creado
+  /api/v1/accounts:
+    post:
+      summary: "F1: Crear Cuenta"
+  /api/v1/movements:
+    post:
+      summary: "F2-F3: Registro de Movimientos"
+  /reports/{clientId}:
+    get:
+      summary: "F4: Reporte Estado de Cuenta"
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: startDate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: endDate
+          in: query
+          required: true
+          schema:
+            type: string
