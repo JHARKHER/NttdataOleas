@@ -29,32 +29,32 @@ services:
       - KAFKA_LOG_DIRS=/tmp/kraft-combined-logs
     restart: unless-stopped
 
-#  ms-customer:
-#    build: ./ms-customer
-#    container_name: ms-customer
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/bank_db
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=root
-#      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-#    depends_on:
-#      - postgres-db
-#      - kafka
-#    restart: unless-stopped
+  ms-customer:
+    build: ./ms-customer
+    container_name: ms-customer
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/bank_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    depends_on:
+      - postgres-db
+      - kafka
+    restart: unless-stopped
 
-#  ms-account:
-#    build: ./ms-account
-#    container_name: ms-account
-#    ports:
-#      - "8081:8081"
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/bank_db
-#      - SPRING_DATASOURCE_USERNAME=postgres
-#      - SPRING_DATASOURCE_PASSWORD=root
-#      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-#    depends_on:
-#      - postgres-db
-#      - kafka
-#    restart: unless-stopped
+  ms-account:
+    build: ./ms-account
+    container_name: ms-account
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/bank_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    depends_on:
+      - postgres-db
+      - kafka
+    restart: unless-stopped
